@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&family=Libre+Bodoni:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
     rel="stylesheet" />
 
   <style>
@@ -62,7 +62,7 @@
       z-index: 0;
       background:
         linear-gradient(to bottom, rgba(20, 13, 11, 0.48) 0%, rgba(20, 13, 11, 0.62) 100%),
-        url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&auto=format&fit=crop&q=80') center / cover no-repeat;
+        url('escolhida.jpeg') center / cover no-repeat;
     }
 
     /* ── HEADER ──────────────────────────────────────── */
@@ -249,7 +249,7 @@
       font-weight: 400;
       font-size: clamp(4rem, 13vw, 10rem);
       color: var(--cream);
-      line-height: 1.0;
+      line-height: 1.2;
       text-align: center;
     }
 
@@ -272,7 +272,7 @@
     }
 
     .home-cta {
-      display: inline-block;
+      display: none;
       margin-top: 2rem;
       padding: 0.8rem 2.4rem;
       border: 1px solid rgba(255, 255, 255, 0.45);
@@ -824,7 +824,7 @@
       <li><a data-panel="details">Localização</a></li>
       <li><a data-panel="theday">O Dia</a></li>
       <li><a data-panel="gifts">Gesto de Carinho</a></li>
-      <li><a data-panel="rsvp">Confirme sua Presença</a></li>
+      <li class="rsvp-nav-item" style="display:none"><a data-panel="rsvp">Confirme sua Presença</a></li>
     </ul>
     <span class="hdr-logo">A | V</span>
     <div class="hamburger" id="hamburger">
@@ -839,7 +839,7 @@
     <a data-panel="details">Localização</a>
     <a data-panel="theday">O Dia</a>
     <a data-panel="gifts">Gesto de Carinho</a>
-    <a data-panel="rsvp">Confirme sua Presença</a>
+    <a data-panel="rsvp" class="rsvp-mobile-item" style="display:none">Confirme sua Presença</a>
   </div>
 
   <!-- Panels -->
@@ -885,8 +885,7 @@
       <div class="details-grid" style="grid-template-columns: repeat(2,1fr); max-width:680px">
         <div class="detail-card">
           <div class="detail-card-img">
-            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=600&auto=format&fit=crop&q=70"
-              alt="Cerimônia" loading="lazy" />
+            <img src="igreja.png" alt="Cerimônia" loading="lazy" style="object-position: center 80%;" />
           </div>
           <p class="detail-label">Cerimônia</p>
           <p class="detail-main">Paróquia Nossa Senhora das Neves</p>
@@ -897,13 +896,12 @@
         </div>
         <div class="detail-card">
           <div class="detail-card-img">
-            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&auto=format&fit=crop&q=70"
-              alt="Recepção" loading="lazy" />
+            <img src="bistro.png" alt="Recepção" loading="lazy" />
           </div>
           <p class="detail-label">Recepção</p>
           <p class="detail-main">Bistrô Capricho</p>
           <p class="detail-info">Av. Eng. Caetano Álvares, 7587<br>Imirim — São Paulo, SP<br><strong
-              style="color:var(--cream)">18h00 às 00h30</strong></p>
+              style="color:var(--cream)">18h30 às 00h30</strong></p>
           <a href="https://www.google.com/maps/place/Bistr%C3%B4+Capricho/@-23.4731877,-46.6265341,17.14z/data=!4m6!3m5!1s0x94cef656babe5db7:0xad5802090a282d4!8m2!3d-23.4731645!4d-46.6266067!16s%2Fg%2F11b6j7ng7h"
             target="_blank" class="detail-link">Ver no mapa</a>
         </div>
@@ -919,12 +917,13 @@
         <div class="detail-card">
           <span class="detail-icon">✨</span>
           <p class="detail-label">Dicas</p>
-          <p class="detail-main">Aproveite<br>ao Máximo</p>
+          <p class="detail-main">Aproveite<br>cada momento</p>
           <p class="detail-info">
-            👗 &nbsp;Recomendamos traje social completo<br>
+            👗 &nbsp;Venha com traje social<br>
             🌿 &nbsp;Faça um almoço leve no dia<br>
-            🚗 &nbsp;Haverá Valet disponível na festa<br>
-            👟 &nbsp;Venha com sapatos confortáveis — tem pista de dança!
+            🚗 &nbsp;Há estacionamento na festa<br>
+            📷 &nbsp;Durante a cerimônia, fotos apenas pelos fotógrafos<br>
+            👠 &nbsp;Utilize sapatos confortáveis — tem pista de dança!
           </p>
         </div>
         <div class="detail-card">
@@ -933,7 +932,7 @@
           <p class="detail-main">O Roteiro<br>do Grande Dia</p>
           <p class="detail-info">
             <strong style="color:var(--cream)">16h30</strong> &nbsp;Cerimônia<br>
-            <strong style="color:var(--cream)">18h00</strong> &nbsp;Abertura da Recepção<br>
+            <strong style="color:var(--cream)">18h30</strong> &nbsp;Abertura da Recepção<br>
             <strong style="color:var(--cream)">20h30</strong> &nbsp;Jantar<br>
             <strong style="color:var(--cream)">21h30</strong> &nbsp;Festa &amp; Pista de Dança<br>
             <strong style="color:var(--cream)">00h30</strong> &nbsp;Encerramento
@@ -1051,11 +1050,11 @@
       return btoa(unescape(encodeURIComponent(str)));
     }
     function decodeGuests(str) {
-      try { return decodeURIComponent(escape(atob(str))); } catch(e) { return str; }
+      try { return decodeURIComponent(escape(atob(str))); } catch (e) { return str; }
     }
 
     // Helper: abra o console e rode gerarLink("Nome1,Nome2") para gerar o link
-    window.gerarLink = function(nomes) {
+    window.gerarLink = function (nomes) {
       const encoded = encodeGuests(nomes);
       const url = location.href.split('#')[0] + '#rsvp/' + encoded;
       console.log(url);
@@ -1086,12 +1085,18 @@
       const raw = window.location.hash;
       if (!raw || raw.length <= 1) return;
       const decoded = decodeURIComponent(raw.slice(1));
-      const slash   = decoded.indexOf('/');
+      const slash = decoded.indexOf('/');
       if (slash === -1) { showPanel(decoded); return; }
-      const panel      = decoded.slice(0, slash);
-      const guestsStr  = decodeGuests(decoded.slice(slash + 1));
-      const guests     = guestsStr.split(',').filter(g => g.trim());
-      if (panel === 'rsvp' && guests.length) populateRSVP(guests);
+      const panel = decoded.slice(0, slash);
+      const guestsStr = decodeGuests(decoded.slice(slash + 1));
+      const guests = guestsStr.split(',').filter(g => g.trim());
+      if (panel === 'rsvp' && guests.length) {
+        populateRSVP(guests);
+        document.querySelector('.home-cta').style.display = 'inline-block';
+        document.querySelector('.rsvp-nav-item').style.display = '';
+        document.querySelector('.rsvp-mobile-item').style.display = '';
+        return;
+      }
       showPanel(panel);
     }
 
