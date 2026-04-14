@@ -441,6 +441,59 @@
       padding-bottom: 2px;
     }
 
+    /* ── TAB CARD ────────────────────────────────────── */
+    .tab-card {
+      width: 100%;
+      max-width: 540px;
+      background: rgba(20, 13, 11, 0.55);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(201, 169, 110, 0.2);
+      border-top: 2px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .tab-headers {
+      display: flex;
+      flex-shrink: 0;
+      border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+    }
+
+    .tab-header {
+      flex: 1;
+      padding: 1rem;
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.45);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.3s, background 0.3s;
+    }
+
+    .tab-header:first-child {
+      border-right: 1px solid rgba(201, 169, 110, 0.2);
+    }
+
+    .tab-header.active {
+      color: var(--gold);
+      background: rgba(201, 169, 110, 0.07);
+    }
+
+    .tab-pane {
+      display: none;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
     /* ── PANEL: GALERIA ──────────────────────────────── */
     .gallery-grid {
       display: grid;
@@ -785,7 +838,7 @@
         align-items: stretch;
       }
 
-      .panel > *:not(.details-grid):not(.rsvp-card) {
+      .panel > *:not(.details-grid):not(.rsvp-card):not(.tab-card) {
         padding-left: 1.2rem;
         padding-right: 1.2rem;
       }
@@ -795,6 +848,31 @@
       .panel-sub {
         padding-left: 1.2rem;
         padding-right: 1.2rem;
+      }
+
+      /* tab panels fill remaining screen height */
+      #panel-details,
+      #panel-theday {
+        justify-content: flex-start;
+        padding-bottom: 0;
+      }
+
+      .tab-card {
+        flex: 1;
+        min-height: 0;
+        max-width: 100%;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+      }
+
+      .tab-pane.active {
+        display: block;
+        overflow-y: auto;
+        flex: 1;
+        min-height: 0;
+        /* fill to bottom of card */
+        max-height: calc(100vh - 14rem);
       }
 
       .details-grid {
@@ -932,8 +1010,12 @@
       <h2 class="panel-title">Localização</h2>
       <div class="panel-rule"></div>
       <p class="panel-sub">14 de Agosto de 2026 · São Paulo</p>
-      <div class="details-grid" style="grid-template-columns: repeat(2,1fr); max-width:680px">
-        <div class="detail-card">
+      <div class="tab-card">
+        <div class="tab-headers">
+          <button class="tab-header active" data-tab="tab-details-0">Cerimônia</button>
+          <button class="tab-header" data-tab="tab-details-1">Recepção</button>
+        </div>
+        <div class="tab-pane active" id="tab-details-0">
           <div class="detail-card-img">
             <img src="igreja.png" alt="Cerimônia" loading="lazy" style="object-position: center 80%;" />
           </div>
@@ -944,7 +1026,7 @@
           <a href="https://www.google.com/maps/place/Par%C3%B3quia+Nossa+Senhora+Das+Neves/@-23.4764362,-46.5975739,17z/data=!4m6!3m5!1s0x94cef6748dfbd0bf:0x59fc330babcd29b8!8m2!3d-23.4763181!4d-46.5974773!16s%2Fg%2F11b6nmjw30"
             target="_blank" class="detail-link">Ver no mapa</a>
         </div>
-        <div class="detail-card">
+        <div class="tab-pane" id="tab-details-1">
           <div class="detail-card-img">
             <img src="bistro.png" alt="Recepção" loading="lazy" />
           </div>
@@ -963,8 +1045,12 @@
       <h2 class="panel-title">O Dia</h2>
       <div class="panel-rule"></div>
       <p class="panel-sub" style="margin-bottom:1.8rem">Sugestões para você aproveitar ao máximo</p>
-      <div class="details-grid" style="grid-template-columns: repeat(2,1fr); max-width:720px">
-        <div class="detail-card">
+      <div class="tab-card">
+        <div class="tab-headers">
+          <button class="tab-header active" data-tab="tab-theday-0">Dicas</button>
+          <button class="tab-header" data-tab="tab-theday-1">Programação</button>
+        </div>
+        <div class="tab-pane active" id="tab-theday-0">
           <span class="detail-icon">✨</span>
           <p class="detail-label">Dicas</p>
           <p class="detail-main">Aproveite<br>cada momento</p>
@@ -976,7 +1062,7 @@
             👠 &nbsp;Utilize sapatos confortáveis — tem pista de dança!
           </p>
         </div>
-        <div class="detail-card">
+        <div class="tab-pane" id="tab-theday-1">
           <span class="detail-icon">🗓️</span>
           <p class="detail-label">Programação</p>
           <p class="detail-main">O Roteiro<br>do Grande Dia</p>
@@ -1153,6 +1239,17 @@
     parseHash();
     setTimeout(parseHash, 100);
     window.addEventListener('hashchange', parseHash);
+
+    /* ── Tab cards ───────────────────────────────────── */
+    document.querySelectorAll('.tab-header').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.tab-card');
+        card.querySelectorAll('.tab-header').forEach(h => h.classList.remove('active'));
+        card.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
 
     /* ── Mobile menu ─────────────────────────────────── */
     document.getElementById('hamburger').addEventListener('click', () => {
