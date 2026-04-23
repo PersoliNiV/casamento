@@ -506,14 +506,16 @@
     }
 
     .gifts-card-scroll {
-      overflow-y: auto;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
       max-height: inherit;
       padding: 3rem 2.5rem;
     }
 
     .tab-pane.active {
       display: block;
-      overflow-y: auto;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
     }
 
     /* ── PANEL: GALERIA ──────────────────────────────── */
@@ -563,7 +565,8 @@
       width: 100%;
       max-width: 480px;
       max-height: calc(100vh - 14rem);
-      overflow-y: auto;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
     }
 
     .rsvp-section {
@@ -892,10 +895,10 @@
 
       .tab-pane.active {
         display: block;
-        overflow-y: auto;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
         flex: 1;
         min-height: 0;
-        /* fill to bottom of card */
         max-height: calc(100vh - 14rem);
       }
 
