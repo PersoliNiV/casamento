@@ -493,23 +493,21 @@
 
     /* ── GIFTS CARD ──────────────────────────────────── */
     .gifts-card {
-      width: calc(100vw - 2rem);
-      max-width: 480px;
-      height: calc(100vh - 6rem);
-      max-height: 700px;
+      display: inline-block;
+      min-width: 320px;
+      max-height: calc(100vh - 22rem);
       background: rgba(20, 13, 11, 0.55);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(201, 169, 110, 0.2);
       border-top: 2px solid var(--gold);
-      display: flex;
-      flex-direction: column;
       overflow: hidden;
+      margin-top: 1rem;
     }
 
     .gifts-card-scroll {
-      flex: 1;
       overflow-y: auto;
-      padding: 2.5rem 2rem;
+      max-height: inherit;
+      padding: 3rem 2.5rem;
     }
 
     .tab-pane.active {
@@ -942,10 +940,15 @@
       }
 
       /* gifts panel */
+      #panel-gifts > div {
+        max-width: 100% !important;
+        padding: 0 1rem;
+      }
+
       .gifts-card {
-        width: calc(100vw - 1.5rem);
-        height: calc(100vh - 5rem);
-        max-height: none;
+        min-width: unset;
+        width: 100%;
+        max-height: calc(100vh - 24rem);
       }
 
       /* home panel centered */
@@ -1096,18 +1099,18 @@
 
     <!-- Gesto de Carinho -->
     <div class="panel" id="panel-gifts">
-      <div class="gifts-card">
-        <div class="gifts-card-scroll">
-          <h2 class="panel-title" style="margin-bottom:0.4rem">Gesto de Carinho</h2>
-          <div class="panel-rule"></div>
-          <p
-            style="font-family:'Cormorant Garamond',serif; font-size:clamp(1rem,2.2vw,1.3rem); font-weight:300; line-height:1.9; color:rgba(255,255,255,0.82); margin-bottom:2.5rem; text-align:center;">
-            Sua presença neste dia tão especial já é o nosso maior presente.<br>
-            Mas, se também quiser nos presentear, você pode contribuir<br>
-            para a nossa lua de mel — qualquer valor é bem-vindo!<br><br>
-            <em>Com amor e gratidão, Agatha e Vinícius.</em>
-          </p>
-          <div style="text-align:center;">
+      <h2 class="panel-title">Gesto de Carinho</h2>
+      <div class="panel-rule"></div>
+      <div style="max-width:560px; text-align:center;">
+        <p
+          style="font-family:'Cormorant Garamond',serif; font-size:clamp(1rem,2.2vw,1.3rem); font-weight:300; line-height:1.9; color:rgba(255,255,255,0.82); margin-bottom:2.5rem;">
+          Sua presença neste dia tão especial já é o nosso maior presente.<br>
+          Mas, se também quiser nos presentear, você pode contribuir<br>
+          para a nossa lua de mel — qualquer valor é bem-vindo!<br><br>
+          <em>Com amor e gratidão, Agatha e Vinícius.</em>
+        </p>
+        <div class="gifts-card">
+          <div class="gifts-card-scroll">
             <span class="detail-icon">💛</span>
             <p class="detail-label">Pix</p>
             <p class="detail-main" style="min-height:unset">vinperdom@gmail.com</p>
