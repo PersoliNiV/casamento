@@ -197,7 +197,7 @@
       pointer-events: none;
       transition: opacity 0.5s ease, transform 0.5s ease;
       transform: translateY(12px);
-      overflow-y: auto;
+      overflow: hidden;
     }
 
     .panel.active {
@@ -446,6 +446,7 @@
     .tab-card {
       width: 100%;
       max-width: 420px;
+      max-height: calc(100vh - 16rem);
       background: rgba(20, 13, 11, 0.55);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(201, 169, 110, 0.2);
@@ -512,6 +513,7 @@
 
     .tab-pane.active {
       display: block;
+      overflow-y: auto;
     }
 
     /* ── PANEL: GALERIA ──────────────────────────────── */
@@ -560,6 +562,8 @@
       padding: 2.8rem 3rem;
       width: 100%;
       max-width: 480px;
+      max-height: calc(100vh - 14rem);
+      overflow-y: auto;
     }
 
     .rsvp-section {
