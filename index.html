@@ -162,7 +162,7 @@
 
     .mobile-menu a {
       font-family: 'Bodoni Moda', serif;
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       color: var(--white);
       text-decoration: none;
       cursor: pointer;
@@ -891,25 +891,20 @@
       #panel-details,
       #panel-theday {
         justify-content: flex-start;
-        padding-bottom: 0;
+        padding-bottom: 1rem;
       }
 
       .tab-card {
-        flex: 1;
-        min-height: 0;
-        max-width: 100%;
-        border-left: none;
-        border-right: none;
-        border-bottom: none;
+        max-width: calc(100% - 2rem);
+        margin: 0 auto;
+        max-height: calc(100dvh - 16rem);
       }
 
       .tab-pane.active {
         display: block;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-        flex: 1;
-        min-height: 0;
-        max-height: calc(100dvh - 14rem);
+        max-height: calc(100dvh - 19rem);
       }
 
       .details-grid {
@@ -949,11 +944,19 @@
         grid-column: auto;
       }
 
-      /* rsvp card full width */
+      /* rsvp card */
+      #panel-rsvp {
+        justify-content: flex-start;
+        padding-bottom: 1rem;
+      }
+
       .rsvp-card {
-        max-width: 100%;
+        max-width: calc(100% - 2rem);
+        margin: 0 auto;
         padding: 2rem 1.2rem;
-        margin: 0;
+        max-height: calc(100dvh - 16rem);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
       .desktop-br {
