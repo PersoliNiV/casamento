@@ -897,7 +897,8 @@
       .tab-card {
         max-width: calc(100% - 2rem);
         margin: 0 auto;
-        max-height: calc(100dvh - 12rem);
+        flex: 1;
+        min-height: 0;
       }
 
       .tab-pane.active {
@@ -950,11 +951,15 @@
         padding-bottom: 1rem;
       }
 
+      #panel-rsvp {
+        align-items: center;
+      }
+
       .rsvp-card {
         max-width: calc(100% - 2rem);
-        margin: 0 auto;
         padding: 2rem 1.2rem;
-        max-height: calc(100dvh - 12rem);
+        flex: 1;
+        min-height: 0;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
       }
@@ -972,16 +977,24 @@
       #panel-gifts>div {
         max-width: 100% !important;
         padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
       }
 
       .gifts-card {
         min-width: unset;
         width: 100%;
-        max-height: calc(100dvh - 24rem);
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
       }
 
       .gifts-card-scroll {
-        max-height: calc(100dvh - 24rem);
+        flex: 1;
+        min-height: 0;
         padding: 2rem 1.5rem;
       }
 
