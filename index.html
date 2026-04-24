@@ -897,8 +897,7 @@
       .tab-card {
         max-width: calc(100% - 2rem);
         margin: 0 auto;
-        flex: 1;
-        min-height: 0;
+        max-height: calc(100dvh - 12rem);
       }
 
       .tab-pane.active {
@@ -951,15 +950,11 @@
         padding-bottom: 1rem;
       }
 
-      #panel-rsvp {
-        align-items: center;
-      }
-
       .rsvp-card {
         max-width: calc(100% - 2rem);
+        margin: 0 auto;
         padding: 2rem 1.2rem;
-        flex: 1;
-        min-height: 0;
+        max-height: calc(100dvh - 12rem);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
       }
