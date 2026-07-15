@@ -576,49 +576,14 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    .rsvp-section {
-      margin-bottom: 0;
-    }
-
-    .rsvp-section-label {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .rsvp-divider {
-      height: 1px;
-      background: rgba(201, 169, 110, 0.15);
-      margin: 1.8rem 0;
-    }
-
-    .rsvp-card textarea {
-      width: 100%;
-      padding: 0.9rem 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--white);
+    .rsvp-closed-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
+      font-size: 1.3rem;
       font-weight: 300;
-      outline: none;
-      resize: none;
-      height: 100px;
-      transition: border-color 0.3s;
-      line-height: 1.6;
-    }
-
-    .rsvp-card textarea::placeholder {
-      color: rgba(255, 255, 255, 0.25);
-      font-style: italic;
-    }
-
-    .rsvp-card textarea:focus {
-      border-color: var(--gold);
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 0.6rem 0;
     }
 
     .form-row {
@@ -678,65 +643,6 @@
       height: 80px;
     }
 
-    .rsvp-guests {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.75);
-      line-height: 1.9;
-      margin-top: 0.3rem;
-    }
-
-    .rsvp-checks {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      margin-top: 0.3rem;
-    }
-
-    .rsvp-check-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .rsvp-check-item input[type="checkbox"] {
-      appearance: none;
-      width: 18px;
-      height: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      background: transparent;
-      cursor: pointer;
-      position: relative;
-      flex-shrink: 0;
-      transition: border-color 0.3s, background 0.3s;
-    }
-
-    .rsvp-check-item input[type="checkbox"]:checked {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-
-    .rsvp-check-item input[type="checkbox"]:checked::after {
-      content: '✓';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: var(--white);
-      font-size: 0.7rem;
-    }
-
-    .rsvp-check-item label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.8);
-      letter-spacing: 0.05em;
-      cursor: pointer;
-      text-transform: none;
-    }
-
     .rsvp-opts {
       display: flex;
       gap: 0.8rem;
@@ -774,26 +680,6 @@
       color: var(--white);
     }
 
-    .btn-submit {
-      width: 100%;
-      padding: 0.9rem;
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      color: var(--white);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.3s, border-color 0.3s;
-    }
-
-    .btn-submit:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-
     /* ── LIGHTBOX ────────────────────────────────────── */
     .lightbox {
       display: none;
@@ -822,28 +708,6 @@
       color: rgba(255, 255, 255, 0.6);
       font-size: 2rem;
       cursor: pointer;
-    }
-
-    /* ── TOAST ───────────────────────────────────────── */
-    .toast {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(200px);
-      background: rgba(20, 13, 11, 0.9);
-      border: 1px solid rgba(201, 169, 110, 0.3);
-      color: var(--white);
-      padding: 0.9rem 2rem;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      z-index: 9998;
-      transition: transform 0.4s ease;
-      backdrop-filter: blur(8px);
-    }
-
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
     }
 
     .mobile-br {
@@ -1177,48 +1041,8 @@
     <div class="panel" id="panel-rsvp">
       <h2 class="panel-title">Confirme sua Presença</h2>
       <div class="panel-rule"></div>
-      <p class="panel-sub" style="margin-bottom:2rem">Até 14 de Julho de 2026</p>
       <div class="rsvp-card">
-        <form id="rsvpForm">
-
-          <!-- Campo oculto: convite para (nomes completos) -->
-          <input type="hidden" name="convite_para" id="hidden-guests" value="João Silva, Maria Silva" />
-
-          <!-- Convite para -->
-          <div class="rsvp-section">
-            <p class="rsvp-section-label">Convite para</p>
-            <p class="rsvp-guests">João Silva<br>Maria Silva</p>
-          </div>
-
-          <div class="rsvp-divider"></div>
-
-          <!-- Confirmação -->
-          <div class="rsvp-section">
-            <p class="rsvp-section-label">Quem vai comparecer?</p>
-            <div class="rsvp-checks">
-              <div class="rsvp-check-item">
-                <input type="checkbox" id="guest-1" name="João" value="Sim" checked />
-                <label for="guest-1">João</label>
-              </div>
-              <div class="rsvp-check-item">
-                <input type="checkbox" id="guest-2" name="Maria" value="Sim" checked />
-                <label for="guest-2">Maria</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="rsvp-divider"></div>
-
-          <!-- Mensagem -->
-          <div class="rsvp-section">
-            <p class="rsvp-section-label">Deixe uma mensagem <span
-                style="opacity:0.5; font-size:0.85em">(opcional)</span></p>
-            <textarea name="mensagem"
-              placeholder="Um conselho, uma música que não pode faltar, o que você está mais animado... Vamos ler com muito carinho!"></textarea>
-          </div>
-
-          <button type="submit" class="btn-submit">Enviar</button>
-        </form>
+        <p class="rsvp-closed-text">Confirmações encerradas.</p>
       </div>
     </div>
 
@@ -1229,9 +1053,6 @@
     <span class="lb-close" id="lbClose">✕</span>
     <img src="" id="lbImg" alt="" />
   </div>
-
-  <!-- Toast -->
-  <div class="toast" id="toast">Obrigado pela confirmação! ♡</div>
 
   <script>
     /* ── Panel switching ─────────────────────────────── */
@@ -1252,58 +1073,12 @@
       });
     });
 
-    /* ── URL hash: links personalizados ─────────────── */
-    function encodeGuests(str) {
-      return btoa(unescape(encodeURIComponent(str)));
-    }
-    function decodeGuests(str) {
-      try { return decodeURIComponent(escape(atob(str))); } catch (e) { return str; }
-    }
-
-    // Helper: abra o console e rode gerarLink("Nome1,Nome2") para gerar o link
-    window.gerarLink = function (nomes) {
-      const encoded = encodeGuests(nomes);
-      const url = location.href.split('#')[0] + '#rsvp/' + encoded;
-      console.log(url);
-      return url;
-    };
-
-    function populateRSVP(guests) {
-      const guestsEl = document.querySelector('.rsvp-guests');
-      if (guestsEl) guestsEl.innerHTML = guests.map(g => g.trim()).join('<br>');
-
-      // Campo oculto com nomes completos para o Formspree
-      const hiddenEl = document.getElementById('hidden-guests');
-      if (hiddenEl) hiddenEl.value = guests.join(', ');
-
-      const checksEl = document.querySelector('.rsvp-checks');
-      if (checksEl) {
-        checksEl.innerHTML = guests.map((name, i) => {
-          const first = name.trim().split(' ')[0];
-          return `<div class="rsvp-check-item">
-            <input type="checkbox" id="guest-${i}" name="${first}" value="Sim" checked />
-            <label for="guest-${i}">${first}</label>
-          </div>`;
-        }).join('');
-      }
-    }
-
+    /* ── URL hash: navegação direta para painéis ─────── */
     function parseHash() {
       const raw = window.location.hash;
       if (!raw || raw.length <= 1) return;
       const decoded = decodeURIComponent(raw.slice(1));
-      const slash = decoded.indexOf('/');
-      if (slash === -1) { showPanel(decoded); return; }
-      const panel = decoded.slice(0, slash);
-      const guestsStr = decodeGuests(decoded.slice(slash + 1));
-      const guests = guestsStr.split(',').filter(g => g.trim());
-      if (panel === 'rsvp' && guests.length) {
-        populateRSVP(guests);
-        document.querySelector('.home-cta').style.display = 'inline-block';
-        document.querySelector('.rsvp-nav-item').style.display = '';
-        document.querySelector('.rsvp-mobile-item').style.display = '';
-        return;
-      }
+      const panel = decoded.split('/')[0];
       showPanel(panel);
     }
 
@@ -1361,34 +1136,6 @@
     lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
 
-    /* ── RSVP form ───────────────────────────────────── */
-    const toast = document.getElementById('toast');
-    document.getElementById('rsvpForm').addEventListener('submit', async e => {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      try {
-        const res = await fetch('https://formspree.io/f/mpqypeop', {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          toast.textContent = 'Confirmação enviada! ♡';
-          toast.classList.add('show');
-          setTimeout(() => toast.classList.remove('show'), 4000);
-          form.reset();
-        } else {
-          toast.textContent = 'Erro ao enviar. Tente novamente.';
-          toast.classList.add('show');
-          setTimeout(() => toast.classList.remove('show'), 4000);
-        }
-      } catch {
-        toast.textContent = 'Sem conexão. Tente novamente.';
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 4000);
-      }
-    });
   </script>
 </body>
 
